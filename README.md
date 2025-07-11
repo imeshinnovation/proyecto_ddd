@@ -30,6 +30,8 @@ graph TD
     C --> E[Microservicio: Movies]
     D --> F[(MongoDB)]
     E --> F[(MongoDB)]
+    D --> G[[Logs]]
+    E --> G[[Logs]]
 ```
 
 ## 🐳 Diagrama de Despliegue Docker
