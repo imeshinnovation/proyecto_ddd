@@ -52,8 +52,8 @@ graph TD
         A -->|Routing| C
         B --> D
         C --> D
-        B --> H
-        C --> H
+        B --> |Monitor| H
+        C --> |Monitor| H
         G -.->|Monitor| A
         G -.->|Monitor| B
         G -.->|Monitor| C
