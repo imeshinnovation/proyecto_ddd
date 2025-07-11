@@ -1,4 +1,4 @@
-# � Distribución de Películas en Streaming - API Gateway (DDD)
+# Distribución de Películas en Streaming - API Gateway (DDD)
 
 **Autor:** Alexander Rubio Caceres  
 **Rol:** Ingeniero de Software | Especialista en Seguridad de la Información | Desarrollador Full Stack MERN  
