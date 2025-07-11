@@ -1,4 +1,4 @@
-# 🎬 Distribución de Películas en Streaming - API Gateway (DDD)
+# 🎬 API Gateway (Arquitectura DDD)
 
 **Autor:** Alexander Rubio Cáceres  
 **Rol:** Ingeniero de Software | Especialista en Seguridad de la Información | Desarrollador Full Stack MERN  
