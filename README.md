@@ -27,8 +27,8 @@ graph TD
     A --> B{{Nginx}}
     A --> C[Prometheus]
     B --> D[API Gateway]
-    C --> E[Microservicio: Users]
-    C --> F[Microservicio: Movies]
+    D --> E[Microservicio: Users]
+    D --> F[Microservicio: Movies]
     E --> G[(MongoDB)]
     F --> G[(MongoDB)]
     E --> H[[Logs]]
