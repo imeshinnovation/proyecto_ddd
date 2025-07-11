@@ -43,12 +43,15 @@ graph TD
         D[(MongoDB: 27017)]
         F{{Nginx: 80,443}}
         G[Prometheus]
+        H[[Logs]]
         
         F -->|Balanceo| A
         A -->|Routing| B
         A -->|Routing| C
         B --> D
         C --> D
+        B --> H
+        C --> H
         G -.->|Monitor| A
         G -.->|Monitor| B
         G -.->|Monitor| C
@@ -61,3 +64,4 @@ graph TD
 3. **Monitorización**: Integración con Prometheus.
 4. **Variables de Entorno**: Configuración segura por servicio.
 5. **Persistencia**: Volúmenes Docker para datos y código.
+6. **Auditoría**: Centalización de logs para Auditoría de Microservicios.
