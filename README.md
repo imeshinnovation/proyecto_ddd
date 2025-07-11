@@ -24,36 +24,36 @@ API REST construida bajo **Domain-Driven Design (DDD)** para distribuir películ
 ```mermaid
 graph TD
     A{Cloud Border}
-    A --> B(Nginx)
+    A --> B{{Nginx}}
     B --> C[API Gateway]
     C --> D[Microservicio: Users]
     C --> E[Microservicio: Movies]
     D --> F[(MongoDB - Users)]
     E --> G[(MongoDB - Movies)]
+```
 
-
-# 🐳 Diagrama de Despliegue Docker
+## 🐳 Diagrama de Despliegue Docker
 
 ```mermaid
 graph TD
     subgraph Docker Cluster
-        A[API Gateway:3000]
-        B[Users MS:3001]
-        C[Movies MS:3002]
+        A[API Gateway:8080]
+        B[Users MS:12301]
+        C[Movies MS:12302]
         D[(MongoDB Users:27017)]
-        E[(MongoDB Movies:27018)]
-        F{{Nginx:80}}
+        F{{Nginx:80,443}}
         G[Prometheus]
         
         F -->|Balanceo| A
         A -->|Routing| B
         A -->|Routing| C
         B --> D
-        C --> E
+        C --> D
         G -.->|Monitor| A
         G -.->|Monitor| B
         G -.->|Monitor| C
     end
+```
 
 ### Características clave del diagrama:
 1. **Aislamiento de Bases de Datos**: MongoDB separado para cada microservicio.
