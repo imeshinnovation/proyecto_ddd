@@ -11,7 +11,7 @@
 
 ## 📌 Visión del Proyecto
 
-API REST construida bajo **Domain-Driven Design (DDD)** para distribuir películas vía streaming, enfocada en:
+API REST construida bajo **Domain-Driven Design (DDD)** para la gestión de películas vía streaming, enfocada en:
 
 - ✅ **Lenguaje ubicuo** entre desarrolladores y expertos del dominio  
 - ✅ **Microservicios** desacoplados y escalables  
