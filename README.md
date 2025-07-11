@@ -14,6 +14,7 @@ API REST basada en **Domain-Driven Design** para la distribución de películas 
 - **Seguridad** integrada en capas  
 
 ## 🏗️ Arquitectura
+
 ```mermaid
 graph TD
     A{Cloud Border}
