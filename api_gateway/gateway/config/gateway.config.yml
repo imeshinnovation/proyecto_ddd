@@ -1,0 +1,135 @@
+http:
+  port: 8080
+  host: "0.0.0.0"
+
+admin:
+  port: 9876
+  host: localhost
+
+## 1. Definición de servicios backend
+serviceEndpoints:
+  users-service:
+    url: "http://microservice_users:12300"
+  movies-service:
+    url: "http://microservice_movies:12301"
+
+## 2. Definición de endpoints API
+apiEndpoints:
+  login:
+    path: /login
+    methods: [POST]
+  users:
+    path: /users*
+    methods: [GET, POST, PUT, DELETE]
+  movies:
+    path: /movies*
+    methods: [GET, POST, PUT, DELETE]
+
+## 3. Políticas disponibles (eliminamos jwt)
+policies:
+  - proxy
+  - cors
+  - log
+  - request-transformer
+  - rate-limit
+  
+## 4. Pipelines de procesamiento (sin JWT)
+pipelines:
+  login-pipeline:
+    apiEndpoints:
+      - login
+    policies:
+      - log:
+          - action:
+              message: "Autenticación de usuario"
+      - rate-limit:
+          - action:
+              max: 5
+              windowMs: 60000
+              key: req.ip
+              message:  |
+                {
+                  "message": "Too Many Requests",
+                  "status": 0 
+                }
+              statusCode: 429
+      - cors:
+          - action:
+              origin: "*"
+              methods: ["POST"]
+              allowedHeaders: ["Content-Type"]
+      - request-transformer:
+          - action:
+              body:
+                add:
+                  serviceKey: "'28a9d787-f53b-4cfd-b2f4-1b6705126b7d'"
+      - proxy:
+          - action:
+              serviceEndpoint: users-service
+              changeOrigin: true
+              
+  users-pipeline:
+    apiEndpoints:
+      - users
+    policies:
+      - log:
+          - action:
+              message: "Access to users - ${req.method} ${req.path}"
+      - rate-limit:
+          - action:
+              max: 5
+              windowMs: 60000
+              key: req.ip
+              message:  |
+                {
+                  "message": "Too Many Requests",
+                  "status": 0 
+                }
+              statusCode: 429
+      - cors:
+          - action:
+              origin: "*"
+              methods: ["GET", "POST", "PUT", "DELETE"]
+              allowedHeaders: ["Content-Type"]
+      - request-transformer:
+          - action:
+              body:
+                add:
+                  serviceKey: "'28a9d787-f53b-4cfd-b2f4-1b6705126b7d'"
+      - proxy:
+          - action:
+              serviceEndpoint: users-service
+              changeOrigin: true
+
+  movies-pipeline:
+    apiEndpoints:
+      - movies
+    policies:
+      - log:
+          - action:
+              message: "Access to movies - ${req.method} ${req.path}"
+      - rate-limit:
+          - action:
+              max: 5
+              windowMs: 60000
+              key: req.ip
+              message:   |
+                {
+                  "message": "Too Many Requests",
+                  "status": 0 
+                }
+              statusCode: 429
+      - cors:
+          - action:
+              origin: "*"
+              methods: ["GET", "POST", "PUT", "DELETE"]
+              allowedHeaders: ["Content-Type"]
+      - request-transformer:
+          - action:
+              body:
+                add:
+                  serviceKey: "'28a9d787-f53b-4cfd-b2f4-1b6705126b7d'"
+      - proxy:
+          - action:
+              serviceEndpoint: movies-service
+              changeOrigin: true

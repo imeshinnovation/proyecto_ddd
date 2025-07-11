@@ -1,0 +1,8 @@
+FROM imeshinnovation/node:23.11.0
+USER root
+RUN apk upgrade
+WORKDIR /app
+COPY movies/ .
+RUN yarn install && yarn upgrade
+EXPOSE 12301
+CMD ["pm2-runtime", "start", "src/server.js", "--watch", "-i", "max"]

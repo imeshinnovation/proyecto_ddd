@@ -1,0 +1,30 @@
+{
+    "name": "microservice-users",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": {
+        "email": "imesh.innovation@gmail.com",
+        "name": "Alexander Rubio Caceres"
+    },
+    "scripts": {
+        "dev": "nodemon src/server.js",
+        "start": "node src/server.js",
+        "upgrade": "yarn upgrade",
+        "shadow-map": "yarn audit"
+    },
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "dotenv": "^17.0.1",
+        "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.16.2",
+        "morgan": "^1.10.0",
+        "nodemailer": "^7.0.5",
+        "qrcode": "^1.5.4",
+        "speakeasy": "^2.0.0",
+        "winston": "^3.17.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}

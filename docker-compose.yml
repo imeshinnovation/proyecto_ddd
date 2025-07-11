@@ -1,0 +1,60 @@
+services:
+  microservice_users:
+    build:
+      context: microservices
+      dockerfile: microservice_users
+    hostname: microservice_users
+    container_name: microservice_users
+    restart: always
+    depends_on:
+      - mongodb
+    expose:
+      - "12300"
+    volumes:
+      - ./microservices/users/src:/app/src
+      - ./microservices/users/package.json:/app/package.json
+      - ./microservices/users/.env:/app/.env
+      - ./logs:/logs:rw
+
+  microservice_movies:
+    build:
+      context: microservices
+      dockerfile: microservice_movies
+    hostname: microservice_movies
+    container_name: microservice_movies
+    restart: always
+    depends_on:
+      - mongodb
+    expose:
+      - "12301"
+    volumes:
+      - ./microservices/movies/src:/app/src
+      - ./microservices/movies/package.json:/app/package.json
+      - ./microservices/movies/.env:/app/.env
+      - ./logs:/logs:rw
+
+  gateway:
+    build:
+      context: api_gateway
+      dockerfile: Dockerfile
+    hostname: gateway
+    container_name: gateway
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - microservice_users
+      - microservice_movies
+    volumes:
+      - ./api_gateway/gateway/config:/app/config
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    hostname: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mastermind
+      MONGO_INITDB_ROOT_PASSWORD: M4st3rm1nd2025
+    expose:
+      - "27017"

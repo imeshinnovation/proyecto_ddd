@@ -1,0 +1,12 @@
+# system.config.yml - Versión sin JWT
+
+db:
+  redis:
+    emulate: true
+    namespace: EG
+  
+metrics:
+  enabled: true
+  endpoint: /metrics
+  collectDefaultMetrics: true
+  timeout: 5000
