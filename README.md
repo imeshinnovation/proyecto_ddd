@@ -23,7 +23,7 @@ API REST construida bajo **Domain-Driven Design (DDD)** para la gestiÃ³n de pelÃ
 
 ```mermaid
 graph TD
-    A{Cloud Border}
+    A{Internet}
     A --> B{{Nginx}}
     B --> C[Prometheus]
     B --> D[API Gateway]
