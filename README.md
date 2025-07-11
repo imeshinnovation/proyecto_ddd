@@ -23,3 +23,21 @@ graph TD
     C --> E[Microservicio: Movies]
     D --> F[(MongoDB)]
     E --> F[(MongoDB)]
+
+
+# 🐳 Diagrama de Despliegue Docker
+
+```mermaid
+graph TD
+    subgraph Docker Cluster
+        A[API Gateway] -->|Routing| B[Microservicio: Users]
+        A -->|Routing| C[Microservicio: Movies]
+        
+        B --> D[(MongoDB Users)]
+        C --> E[(MongoDB Movies)]
+        
+        F{{Nginx}} -->|Load Balancing| A
+        G[Prometheus] -->|Monitor| A
+        G -->|Monitor| B
+        G -->|Monitor| C
+    end
