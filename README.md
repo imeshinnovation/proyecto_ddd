@@ -1,19 +1,25 @@
-# Distribución de Películas en Streaming - API Gateway (DDD)
+# 🎬 Distribución de Películas en Streaming - API Gateway (DDD)
 
-**Autor:** Alexander Rubio Caceres  
+**Autor:** Alexander Rubio Cáceres  
 **Rol:** Ingeniero de Software | Especialista en Seguridad de la Información | Desarrollador Full Stack MERN  
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![DDD](https://img.shields.io/badge/Architecture-Domain%20Driven%20Design-orange)](https://domainlanguage.com/ddd/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
+[![DDD](https://img.shields.io/badge/Architecture-Domain%20Driven%20Design-orange)](https://domainlanguage.com/ddd/)  
 [![MERN](https://img.shields.io/badge/Stack-MERN-9cf)](https://www.mongodb.com/mern-stack)
 
-## 📌 Visión del Proyecto
-API REST basada en **Domain-Driven Design** para la distribución de películas en streaming, enfatizando:
-- **Lenguaje Ubicuo** entre desarrolladores y expertos de dominio  
-- **Microservicios** independientes y escalables  
-- **Seguridad** integrada en capas  
+---
 
-## 🏗️ Arquitectura
+## 📌 Visión del Proyecto
+
+API REST construida bajo **Domain-Driven Design (DDD)** para distribuir películas vía streaming, enfocada en:
+
+- ✅ **Lenguaje ubicuo** entre desarrolladores y expertos del dominio  
+- ✅ **Microservicios** desacoplados y escalables  
+- ✅ **Seguridad multicapa** desde el acceso hasta la base de datos
+
+---
+
+## 🏗️ Arquitectura General
 
 ```mermaid
 graph TD
@@ -22,23 +28,27 @@ graph TD
     B --> C[API Gateway]
     C --> D[Microservicio: Users]
     C --> E[Microservicio: Movies]
-    D --> F[(MongoDB)]
-    E --> F[(MongoDB)]
-end
+    D --> F[(MongoDB - Users)]
+    E --> G[(MongoDB - Movies)]
 
-# 🐳 Diagrama de Despliegue Docker
 
-```mermaid
 graph TD
     subgraph Docker Cluster
-        A[API Gateway] -->|Routing| B[Microservicio: Users]
+        F{{Nginx}} -->|Balanceo de carga| A[API Gateway]
+        A -->|Routing| B[Microservicio: Users]
         A -->|Routing| C[Microservicio: Movies]
         
-        B --> D[(MongoDB Users)]
-        C --> E[(MongoDB Movies)]
-        
-        F{{Nginx}} -->|Load Balancing| A
-        G[Prometheus] -->|Monitor| A
-        G -->|Monitor| B
-        G -->|Monitor| C
+        B --> D[(MongoDB - Users)]
+        C --> E[(MongoDB - Movies)]
+
+        G[Prometheus] -->|Monitoreo| A
+        G -->|Monitoreo| B
+        G -->|Monitoreo| C
     end
+
+### Características clave del diagrama:
+1. **Aislamiento de Bases de Datos**: MongoDB separado para cada microservicio.
+2. **Balanceador de Carga**: Nginx maneja tráfico entrante.
+3. **Monitorización**: Integración con Prometheus.
+4. **Variables de Entorno**: Configuración segura por servicio.
+5. **Persistencia**: Volúmenes Docker para datos y código.
