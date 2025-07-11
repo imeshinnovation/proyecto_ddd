@@ -37,11 +37,11 @@ graph TD
 ```mermaid
 graph TD
     subgraph Docker Cluster
-        A[API Gateway:8080]
-        B[Users MS:12301]
-        C[Movies MS:12302]
-        D[(MongoDB Users:27017)]
-        F{{Nginx:80,443}}
+        A[API Gateway: 8080]
+        B[Users MS: 12301]
+        C[Movies MS: 12302]
+        D[(MongoDB: 27017)]
+        F{{Nginx: 80,443}}
         G[Prometheus]
         
         F -->|Balanceo| A
