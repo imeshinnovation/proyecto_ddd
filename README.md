@@ -16,8 +16,8 @@ API REST basada en **Domain-Driven Design** para la distribución de películas 
 ## 🏗️ Arquitectura
 ```mermaid
 graph TD
-    A{Clod}
+    A{Cloud Border}
     A --> B[API Gateway] --> C[Microservicio: Users]
     B --> D[Microservicio: Movies]
     C --> E[(MongoDB)]
-    D --> F[(MongoDB)]
+    D --> E[(MongoDB)]
