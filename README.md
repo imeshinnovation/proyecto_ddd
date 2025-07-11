@@ -25,10 +25,12 @@ API REST construida bajo **Domain-Driven Design (DDD)** para la gestiÃ³n de pelÃ
 graph TD
     A{Cloud Border}
     A --> B{{Nginx}}
-    A --> C[Prometheus]
+    B --> C[Prometheus]
     B --> D[API Gateway]
     D --> E[Microservicio: Users]
     D --> F[Microservicio: Movies]
+    E --> C[Prometeus]
+    F --> C[Prometeus]
     E --> G[(MongoDB)]
     F --> G[(MongoDB)]
     E --> H[[Logs]]
