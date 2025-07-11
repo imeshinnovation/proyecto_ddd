@@ -70,3 +70,10 @@ graph TD
 4. **Variables de Entorno**: Configuración segura por servicio.
 5. **Persistencia**: Volúmenes Docker para datos y código.
 6. **Auditoría**: Centralización de logs, eventos de los Microservicios.
+
+
+### Instrucciones para el Despliegue
+1. **Requisitos previos**: Instalar docker, containerd y docker-compose
+2. **Clonar el proyecto**: git clone https://github.com/imeshinnovation/proyecto_ddd.git
+3. **Desplegar**: docker-compose up -d --build
+4. ****
