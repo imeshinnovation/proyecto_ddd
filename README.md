@@ -56,7 +56,7 @@ graph TD
 ```
 
 ### Características clave del diagrama:
-1. **Aislamiento de Bases de Datos**: MongoDB separado para cada microservicio.
+1. **Aislamiento de Bases de Datos**: MongoDB separado para microservicios.
 2. **Balanceador de Carga**: Nginx maneja tráfico entrante.
 3. **Monitorización**: Integración con Prometheus.
 4. **Variables de Entorno**: Configuración segura por servicio.
