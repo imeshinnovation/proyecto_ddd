@@ -25,13 +25,14 @@ API REST construida bajo **Domain-Driven Design (DDD)** para la gestión de pel�
 graph TD
     A{Cloud Border}
     A --> B{{Nginx}}
-    B --> C[API Gateway]
-    C --> D[Microservicio: Users]
-    C --> E[Microservicio: Movies]
-    D --> F[(MongoDB)]
-    E --> F[(MongoDB)]
-    D --> G[[Logs]]
-    E --> G[[Logs]]
+    A --> C[Prometheus]
+    B --> D[API Gateway]
+    C --> E[Microservicio: Users]
+    C --> F[Microservicio: Movies]
+    E --> G[(MongoDB)]
+    F --> G[(MongoDB)]
+    E --> H[[Logs]]
+    F --> H[[Logs]]
 ```
 
 ## 🐳 Diagrama de Despliegue Docker
