@@ -3,6 +3,6 @@ USER root
 RUN apk upgrade
 WORKDIR /app
 COPY users/ .
-RUN yarn install && yarn upgrade
+RUN yarn install
 EXPOSE 12300
 CMD ["pm2-runtime", "start", "src/server.js", "--watch", "-i", "max"]

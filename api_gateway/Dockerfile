@@ -3,6 +3,6 @@ USER root
 RUN apk upgrade
 WORKDIR /app
 COPY gateway/ .
-RUN yarn install && yarn upgrade
+RUN yarn install
 EXPOSE 8080
 CMD ["pm2-runtime", "start", "server.js", "--watch", "-i", "max"]
