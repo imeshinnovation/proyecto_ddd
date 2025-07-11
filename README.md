@@ -66,4 +66,4 @@ graph TD
 3. **Monitorización**: Integración con Prometheus.
 4. **Variables de Entorno**: Configuración segura por servicio.
 5. **Persistencia**: Volúmenes Docker para datos y código.
-6. **Auditoría**: Centalización de logs para Auditoría de Microservicios.
+6. **Auditoría**: Centralización de logs, eventos de los Microservicios.
