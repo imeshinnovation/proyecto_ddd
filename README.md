@@ -28,8 +28,8 @@ graph TD
     B --> C[API Gateway]
     C --> D[Microservicio: Users]
     C --> E[Microservicio: Movies]
-    D --> F[(MongoDB - Users)]
-    E --> G[(MongoDB - Movies)]
+    D --> F[(MongoDB)]
+    E --> F[(MongoDB)]
 ```
 
 ## 🐳 Diagrama de Despliegue Docker
