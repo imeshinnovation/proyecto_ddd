@@ -29,12 +29,12 @@ graph TD
     B --> D[API Gateway]
     D --> E[Microservicio: Users]
     D --> F[Microservicio: Movies]
-    E --> C[Prometeus]
-    F --> C[Prometeus]
+    E -.-> C[Prometeus]
+    F -.-> C[Prometeus]
     E --> G[(MongoDB)]
     F --> G[(MongoDB)]
-    E --> H[[Logs]]
-    F --> H[[Logs]]
+    E -.-> H[[Logs]]
+    F -.-> H[[Logs]]
 ```
 
 ## 🐳 Diagrama de Despliegue Docker
