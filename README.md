@@ -73,7 +73,7 @@ graph TD
 
 
 ### Instrucciones para el Despliegue
-1. **Requisitos previos**: Instalar docker, containerd y docker-compose
+1. **Requisitos previos**: Instalar (En Linux) docker, containerd, docker-compose [En Windows docker-desktop] y postman
 2. **Clonar el proyecto**: git clone https://github.com/imeshinnovation/proyecto_ddd.git
 3. **Desplegar**: docker-compose up -d --build
-4. ****
+4. **Ejecutar Pruebas**: Importar en Postman el set de pruebas alojado en el directorio testing_set
