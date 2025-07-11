@@ -18,7 +18,8 @@ API REST basada en **Domain-Driven Design** para la distribución de películas 
 graph TD
     A{Cloud Border}
     A --> B(Nginx)
-    B --> C[API Gateway] --> D[Microservicio: Users]
-    B --> E[Microservicio: Movies]
+    B --> C[API Gateway]
+    C --> D[Microservicio: Users]
+    C --> E[Microservicio: Movies]
     D --> F[(MongoDB)]
     E --> F[(MongoDB)]
