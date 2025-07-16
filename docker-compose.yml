@@ -54,7 +54,7 @@ services:
     hostname: mongodb
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: mastermind
-      MONGO_INITDB_ROOT_PASSWORD: M4st3rm1nd2025
+      MONGO_INITDB_ROOT_USERNAME: usuario
+      MONGO_INITDB_ROOT_PASSWORD: clave
     expose:
       - "27017"
