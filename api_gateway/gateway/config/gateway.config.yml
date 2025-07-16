@@ -62,7 +62,7 @@ pipelines:
           - action:
               body:
                 add:
-                  serviceKey: "'28a9d787-f53b-4cfd-b2f4-1b6705126b7d'"
+                  serviceKey: "'cambia-clave-para-jwt'"
       - proxy:
           - action:
               serviceEndpoint: users-service
@@ -95,7 +95,7 @@ pipelines:
           - action:
               body:
                 add:
-                  serviceKey: "'28a9d787-f53b-4cfd-b2f4-1b6705126b7d'"
+                  serviceKey: "'cambia-clave-para-jwt'"
       - proxy:
           - action:
               serviceEndpoint: users-service
@@ -128,7 +128,7 @@ pipelines:
           - action:
               body:
                 add:
-                  serviceKey: "'28a9d787-f53b-4cfd-b2f4-1b6705126b7d'"
+                  serviceKey: "'cambia-clave-para-jwt'"
       - proxy:
           - action:
               serviceEndpoint: movies-service
